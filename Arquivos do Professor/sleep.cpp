@@ -14,21 +14,12 @@ using std::cout;
 //using namespace std;
 
 
-int main ( )
-{
-
-  double x = 1;
-
-
+int main ( ){
+   double x = 1;
 
     //usleep(1000);
     sleep(2);
-    cout << "passei. levou 2 segundos" << '\n';
-    for(int i=0; i<5; i++) {
-      sleep(i);
-      cout << "teste "  << i <<'\n';
-    }
-  cout << "teste" <<'\n';
-  return(0);
+    printf("O pai do Sleep é: %d\n",getppid());
+    return(0);
 }
 

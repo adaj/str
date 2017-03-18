@@ -52,7 +52,7 @@ int main(){
         //Imprime a data
         cout << "Data Especificada: " <<data.tm_mday << "/" <<data.tm_mon+1 << "/" <<data.tm_year+1900 << "\t" <<data.tm_hour << ":" <<data.tm_min << ":" <<data.tm_sec << "\n";
         //Calcula a diferenca entre tempo atual e o tempo da data fornecida
-        double seconds = difftime(now,mktime(&data));
+        time_t seconds = difftime(now,mktime(&data));
         cout<<"Tempo em segundos entre a data Especificada e a data Atual: "<<seconds<<"seg \n";
     }else{
         cout<<"Data Invalida!\n";
