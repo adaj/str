@@ -1,0 +1,6 @@
+#STR - Sistemas de Tempo Real : Tarefa 1.2
+#BubbleSort vs QuickSort cpu time usage (by clock() function)
+#Columns: samples quicksort_time(ms) bubblesort_time(ms)
+1000 223 6787
+10000 2743 820795
+100000 36144 94028000
