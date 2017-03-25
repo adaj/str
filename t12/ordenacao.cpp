@@ -66,23 +66,18 @@ void criarVetor(int tamanhoVetor, int semente){
 }
 
 
-int main ()
-{
+int main (){
 
 	clock_t start, qsort_t, bsort_t;
-	int samples = 3;
-	int ny[samples] = {1000,10000,100000};
+	int samples = 5;
+	int ny[samples] = {1000,5000,10000,50000,100000};
 	int qx[samples];
 	int bx[samples];
 	ofstream file;
 
-
-	//printf("\nStart time: %ld\n",start);
-
 	for (int i=0; i<samples; i++){
 		//Criar vetor com elementos aleatorios[0,100000]
 		criarVetor(ny[i],23);
-
 		printf("Array size: %d\n",ny[i]);
 		//Ordenar utilizando quickSort
 		start = clock();
@@ -99,41 +94,13 @@ int main ()
 		bx[i] = bsort_t;
 	}
 
-	file.open("ord_data.txt");
-	file << "#STR - Sistemas de Tempo Real : Tarefa 1.2\n";
-	file << "#BubbleSort vs QuickSort cpu time usage (by clock() function)\n";
-	file << "#Columns: samples quicksort_time(ms) bubblesort_time(ms)\n";
+	file.open("medicao_ordenacao.csv");
+	file << "samples,quicksort_time(ms),bubblesort_time(ms)\n";
 
 	for (int i=0; i<samples; i++){
-		file << ny[i] << " " << qx[i] << " " << bx[i] << "\n";
+		file << ny[i] << "," << qx[i] << "," << bx[i] << "\n";
 	}
 	file.close();
-
-	printf("Calculando histogramas...\n");
-	//Histograms
-	file.open("hist.dat");
-	file << "#STR - Sistemas de Tempo Real : Tarefa 1.2\n";
-	file << "#cpu time usage histogram\n";
-	file << "#Columns: quicksort_time(ms) bubblesort_time(ms)\n";
-
-	for (int j=0; j<100; j++){
-		//Criar vetor com 100 elementos aleatorios[0,100000]
-		criarVetor(100,23);
-
-		//Ordenar utilizando quickSort
-		start = clock();
-		qsort (vetorQuickSort, 100, sizeof(int), compare_ints);
-		qsort_t = clock() - start;
-
-		start = clock();
-		bubbleSort(vetorBubbleSort,100);
-		bsort_t = clock() - start;
-
-		file << qsort_t << " " << bsort_t << "\n";
-	}
-	file.close();
-
 
 	return 0;
-
 }
