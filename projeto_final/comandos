@@ -1,0 +1,7 @@
+scp main.cpp root@192.168.7.2:/root/BlackLib-Modificada-master/
+sudo make main
+sudo ./main
+
+ scp servidor41.cpp root@192.168.7.2:/root/BlackLib/v3_0/
+ g++ -o servidor41 servidor41.cpp BlackCore.o BlackADC/BlackADC.o BlackGPIO/BlackGPIO.o
+./servidor41
